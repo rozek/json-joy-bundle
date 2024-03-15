@@ -1,0 +1,32 @@
+{
+  "name": "json-joy-bundle",
+  "version": "0.0.1",
+  "description": "a JSON Joy bundle that can be used in no-build environments",
+  "keywords": [
+    "json-joy", "JSON",
+    "CRDT"
+  ],
+  "author": "Andreas Rozek <a.rozek@gmx.de> (https://www.rozek.de/)",
+  "license": "MIT",
+  "homepage": "https://github.com/rozek/json-joy-bundle#readme",
+  "bugs": {
+    "url": "https://github.com/rozek/json-joy-bundle/issues"
+  },
+  "type": "module",
+  "scripts": {
+    "build": "rimraf dist && tsc && vite build --sourcemap true --assetsDir . && rm ./dist/index.html && mv ./dist/index.js ./dist/json-joy-bundle.js && mv ./dist/index.js.map ./dist/json-joy-bundle.js.map && sed -i '' 's\"sourceMappingURL=index.js.map\"sourceMappingURL=json-joy-bundle.js.map\"g' ./dist/json-joy-bundle.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rozek/json-joy-bundle.git"
+  },
+  "devDependencies": {
+    "rimraf": "^3.0.2",
+    "typescript": "^5.2.2",
+    "vite": "^5.1.6"
+  },
+  "dependencies": {
+    "json-joy": "^11.38.1"
+  }
+}
